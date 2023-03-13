@@ -22,6 +22,7 @@ namespace CSharpMaster
             }
         }
 
+
         public static bool Read(out Player readData)
         {
             readData = null;
