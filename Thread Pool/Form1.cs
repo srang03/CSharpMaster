@@ -1,22 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Thread_Pool.FileUtil;
 
 namespace Thread_Pool
 {
     public partial class Form1 : Form
     {
-        private const string SOURCE_FILE = "ArtEx.zip";
-        private const string DESTINATION_FILE = "ArtEx2.zip";
+        private const string SOURCE_FILE = "android-studio-2022.1.1.21-windows.exe";
+        private const string DESTINATION_FILE = "android-studio-2022.1.1.21-windows2.exe";
         private int CurrentThreadId => Thread.CurrentThread.ManagedThreadId;
 
         public Form1()
@@ -25,13 +18,12 @@ namespace Thread_Pool
         }
 
 
-
         private async Task FileCopyBackAsyc()
         {
             await Task.Run(() =>
             {
-                Debug.Print($"시작: {CurrentThreadId}");
                 FileUtil.Copy(SOURCE_FILE, DESTINATION_FILE, fileProgress: FileProgress);
+                Debug.Print($"시작: {CurrentThreadId}");
             });
         }
 
@@ -44,9 +36,15 @@ namespace Thread_Pool
 
         private void FileProgress(string currentUnits, string TotalUnits, int Percentage)
         {
-            if (this.InvokeRequired)
+            if (this.label2.InvokeRequired)
             {
-                BeginInvoke(new FileProgressDelegate(FileProgress), currentUnits, TotalUnits, Percentage);
+                this.label2.Invoke(new MethodInvoker(delegate
+                {
+                    label2.Text = $"{currentUnits} / {TotalUnits} ({Percentage}%)";
+                    progressBar2.Value = Percentage;
+
+                }));
+
             }
             else
             {

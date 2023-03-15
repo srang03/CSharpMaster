@@ -33,7 +33,6 @@ namespace Thread_Pool
                         if(fileProgress != null)
                         {
                             fileProgress.Invoke(totalRead.ToString(), fileSize.ToString(), (int)((totalRead / fileSize) * 100));
-                            
                         }
                     }
 
