@@ -26,7 +26,6 @@ namespace Thread_Pool
 
                     while ((read = sourceStream.Read(buffer, 0, bufferSize)) > 0)
                     {
-               
                         desStream.Write(buffer, 0, read);
                         totalRead += read;
 

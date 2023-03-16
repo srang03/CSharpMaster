@@ -44,7 +44,6 @@
             this.btn_sameThread.TabIndex = 0;
             this.btn_sameThread.Text = "파일 복사 비동기 (동일 스레드)";
             this.btn_sameThread.UseVisualStyleBackColor = true;
-           
             // 
             // btn_backgroundThread
             // 
@@ -101,6 +100,7 @@
             this.Controls.Add(this.btn_sameThread);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

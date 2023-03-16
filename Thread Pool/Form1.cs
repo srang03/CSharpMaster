@@ -44,13 +44,17 @@ namespace Thread_Pool
                     progressBar2.Value = Percentage;
 
                 }));
-
             }
             else
             {
                 label2.Text = $"{currentUnits} / {TotalUnits} ({Percentage}%)";
                 progressBar2.Value = Percentage;
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

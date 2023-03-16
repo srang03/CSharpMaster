@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thread Pool", "Thread Pool\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task WhenAll WhenAny", "Task WhenAll WhenAny\Task WhenAll WhenAny.csproj", "{E698E569-3522-463B-838C-CEF4B2AEB0F5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AwaitAsync", "AwaitAsync", "{187C2DEC-7710-468D-AD80-4171026FEE6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_FILEIO", "1_FILEIO", "{A664A68E-9379-48BB-9E4F-04C21A3D7661}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwaitAsync", "AwaitAsync\AwaitAsync.csproj", "{A29E3A8D-3600-40A8-8A0C-F8C42EF888DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,9 +45,17 @@ Global
 		{E698E569-3522-463B-838C-CEF4B2AEB0F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E698E569-3522-463B-838C-CEF4B2AEB0F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E698E569-3522-463B-838C-CEF4B2AEB0F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A29E3A8D-3600-40A8-8A0C-F8C42EF888DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29E3A8D-3600-40A8-8A0C-F8C42EF888DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A29E3A8D-3600-40A8-8A0C-F8C42EF888DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A29E3A8D-3600-40A8-8A0C-F8C42EF888DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4CAE25F1-FA50-4208-BD62-6F71FEA4F45E} = {A664A68E-9379-48BB-9E4F-04C21A3D7661}
+		{A29E3A8D-3600-40A8-8A0C-F8C42EF888DD} = {187C2DEC-7710-468D-AD80-4171026FEE6B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D487B330-096C-4F28-A204-E29DFA51C829}
