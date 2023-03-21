@@ -28,6 +28,9 @@ namespace AwaitAsync
         {
 
         }
+
+ 
+
         private async Task CopyFile()
         {
             await Task.Run(() =>
@@ -43,7 +46,11 @@ namespace AwaitAsync
                 this.label1.Text = $"{currentUnit} / {TotalUnit} ({percent}%)";
                 progressBar1.Value = percent;
             }));
-            else this.label1.Text = $"{currentUnit} / {TotalUnit} ({percent}%)";
+            else 
+            {
+                this.label1.Text = $"{currentUnit} / {TotalUnit} ({percent}%)";
+                progressBar1.Value = percent;
+            }
 
         }
 

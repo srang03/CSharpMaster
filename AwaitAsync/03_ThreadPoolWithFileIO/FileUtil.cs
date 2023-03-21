@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace AwaitAsync
 {
-    public delegate void FileProgressDelegate (string currentUnit, string totalUnit, int percentage);
     public class FileUtil
     {
-        public static void FileCopy(string sourceFile, string targetFile, FileProgressDelegate fileProgress)
+        public static void FileCopy(string sourceFile, string targetFile, Action<string, string ,int> fileProgress)
         {
             if(File.Exists(sourceFile))
             {
@@ -31,7 +30,7 @@ namespace AwaitAsync
                             targetStream.Write(data, 0, read);
                             totalRead += read;
 
-                            if (fileProgress != null) fileProgress.Invoke(totalRead.ToString(), fileSize.ToString(), (int)((totalRead / fileSize) * 100));
+                            fileProgress?.Invoke(totalRead.ToString(), fileSize.ToString(), (int)((totalRead / fileSize) * 100));
                         }
                         targetStream.Close();
                     }

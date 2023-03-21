@@ -38,7 +38,7 @@ namespace AwaitAsync
                 for(int i = 0; i< 30; i++)
                 {
                     Thread.Sleep(100);
-                    if (lbl.InvokeRequired) lbl.Invoke(new Action(delegate
+                    if (lbl.InvokeRequired) lbl. Invoke(new Action(delegate
                     {
                         lbl.Text = i.ToString();
                     }));
