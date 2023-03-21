@@ -65,6 +65,20 @@
     <Compile Include="04_Task\TaskWhenWhenAny.Designer.cs">
       <DependentUpon>TaskWhenWhenAny.cs</DependentUpon>
     </Compile>
+    <Compile Include="05_00_WhyUseCancellationToken\HundredManagerToZero.cs" />
+    <Compile Include="05_00_WhyUseCancellationToken\WhyUseCancellationTokenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="05_00_WhyUseCancellationToken\WhyUseCancellationTokenForm.Designer.cs">
+      <DependentUpon>WhyUseCancellationTokenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="05_00_WhyUseCancellationToken\ZeroToHundredManager.cs" />
+    <Compile Include="05_01_WhyUseCancellationToken\WhyUseCancellationTokenForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="05_01_WhyUseCancellationToken\WhyUseCancellationTokenForm2.Designer.cs">
+      <DependentUpon>WhyUseCancellationTokenForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="01_SyncAndAsync\SyncAndAsyncFunction.cs" />
@@ -82,6 +96,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="04_Task\TaskWhenWhenAny.resx">
       <DependentUpon>TaskWhenWhenAny.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="05_00_WhyUseCancellationToken\WhyUseCancellationTokenForm.resx">
+      <DependentUpon>WhyUseCancellationTokenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="05_01_WhyUseCancellationToken\WhyUseCancellationTokenForm2.resx">
+      <DependentUpon>WhyUseCancellationTokenForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

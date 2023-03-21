@@ -44,7 +44,10 @@ namespace AwaitAsync._04_Task
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Run(this.label1, 1);
+            Task.Run(() =>
+            {
+                Run(this.label1, 1);
+            });
         }
     }
 }

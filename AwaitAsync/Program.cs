@@ -1,4 +1,6 @@
 ﻿using AwaitAsync._04_Task;
+using AwaitAsync._05_01_WhyUseCancellationToken;
+using AwaitAsync._05_WhyUseCancellationToken;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,7 @@ namespace AwaitAsync
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TaskWhenWhenAny());
+            Application.Run(new WhyUseCancellationTokenForm2());
         }
     }
 }
