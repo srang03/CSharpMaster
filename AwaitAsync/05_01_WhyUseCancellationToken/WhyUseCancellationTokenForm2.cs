@@ -47,7 +47,8 @@ namespace AwaitAsync._05_01_WhyUseCancellationToken
             CancellationToken token = cts.Token;
 
             List<Task> tasks = new List<Task>();
-            Task t2 = new HundredToOnManager().Run(RunProgressBar, token);
+            Task t1 = new ZeroToHundredManager().Run((count)=> RunProgressBar(progressBar1, lbl_pb1, count), token);
+            Task t2 = new HundredToOnManager().Run((count)=> RunProgressBar(progressBar2, lbl_pb2, count), token);
 
             tasks.Add(t1);
             tasks.Add(t2);
@@ -93,16 +94,16 @@ namespace AwaitAsync._05_01_WhyUseCancellationToken
 
     public class HundredToOnManager
     {
-        public async Task Run(Action func, CancellationToken token)
+        public async Task Run(Action<int> func, CancellationToken token)
         {
             int count = 100;
-            func?.Invoke();
+            func?.Invoke(count);
 
             await Task.Run(() =>
             {
                 while (count > 0) { 
                     if (token.IsCancellationRequested) break;
-                    func?.Invoke();
+                    func?.Invoke(--count);
                     Thread.Sleep(50);
                 }
             });
