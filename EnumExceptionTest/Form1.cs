@@ -27,7 +27,6 @@ namespace EnumExceptionTest
                     var temp = (AnalysisMethod)value;
                 }
             }
-
         }
     }
 
