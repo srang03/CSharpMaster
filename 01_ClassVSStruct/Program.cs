@@ -10,34 +10,37 @@ namespace _01_ClassVSStruct
     {
         static void Main(string[] args)
         {
-            GrandFather gf;
-            Console.WriteLine(gf.Property()); 
-            Console.ReadKey();
+            Father f = new Father();
+            Console.WriteLine(f.GetProperty()); 
+
+            Daughter d = new Daughter();
+            Console.WriteLine(d.GetProperty());
+            Console.WriteLine(d.GetFaterProperty());
         }
     }
 
-    struct GrandFather
+    class GrandFather
     {
-        public int Property()
+        public int GetProperty()
         {
             return 1000;
         }
     }
-    struct Father
+    class Father: GrandFather
     {
-        public int Property()
+        public int GetFaterProperty()
         {
             return 100;
         }
-
     }
 
-    struct Daughter
+    class Daughter: Father
     {
-        public int Property()
+        public int GetDaughterProperty()
         {
             return 0;
         }
     }
+    
 
 }
