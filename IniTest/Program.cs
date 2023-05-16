@@ -1,10 +1,5 @@
 ﻿using Enc;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace IniTest
@@ -42,13 +37,14 @@ namespace IniTest
                             return;
                         }
 
-                        if(InputPassword(path, encryptionKey))
+                        if (InputPassword(path, encryptionKey))
                         {
                             Console.WriteLine();
                             Console.WriteLine("새로운 비밀번호를 입력해주세요.");
 
                             var newPassword = Console.ReadLine();
-                            var origin = DateTime.Now;
+                            var now = DateTime.Now;
+                            var origin = now.Millisecond * (now.Minute + now.Hour);
                             var newSalt = ini.CreateSalt(origin);
                             AESEncryption aes = new AESEncryption();
                             var EncryptedNewPassword = aes.EncryptString(newPassword, encryptionKey, origin.ToString());
@@ -59,6 +55,23 @@ namespace IniTest
                         }
                     }
 
+                }
+
+                if (KeyInfo.Key == ConsoleKey.D3)
+                {
+                    using (var ini = new Ini())
+                    {
+                        var newPassword = Console.ReadLine();
+                        var now = DateTime.Now;
+                        string origin = $"{now.Millisecond}{now.Hour + now.Minute + now.Millisecond}{now.Second}";
+                        Int32.TryParse(origin , out int num);
+                        var newSalt = ini.CreateSalt(num);
+                        AESEncryption aes = new AESEncryption();
+                        var EncryptedNewPassword = aes.EncryptString(newPassword, encryptionKey, origin.ToString());
+
+                        var DecryptionNewPassword = aes.DecryptString(EncryptedNewPassword, encryptionKey, origin.ToString());
+
+                    }
                 }
             } while (KeyInfo.Key != ConsoleKey.Escape);
 
@@ -72,8 +85,8 @@ namespace IniTest
             string loadSalt = string.Empty;
             string loadmKey = string.Empty;
             var strInputPassword = Console.ReadLine();
-            AESEncryption aes = new AESEncryption();         
-            
+            AESEncryption aes = new AESEncryption();
+
             using (var ini = new Ini())
             {
                 loadSalt = ini.LoadSalt(ini.LoadIniFile("system", "nimdatals", path));
@@ -99,6 +112,6 @@ namespace IniTest
                 return false;
             }
         }
-           
+
     }
 }

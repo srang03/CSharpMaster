@@ -70,12 +70,11 @@ namespace IniTest
         }
 
 
-        public string CreateSalt(DateTime origin)
+        public string CreateSalt(int origin)
         {
             try
             {
-                var binary = origin.ToBinary();
-                var bytes = System.Text.Encoding.Unicode.GetBytes(binary.ToString());
+                var bytes = System.Text.Encoding.Unicode.GetBytes(origin.ToString());
                 return Convert.ToBase64String(bytes);
             }
             catch
