@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-            C c =new C();
-            c.Say();
+            MyClass myClass =new MyClass();
+            myClass.Say();
         }
     }
 
@@ -38,7 +38,7 @@
       
     }
 
-    public class C : A, B
+    public class MyClass : A, B
     {
         public void Say()
         {
