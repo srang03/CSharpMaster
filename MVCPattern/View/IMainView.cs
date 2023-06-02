@@ -10,6 +10,7 @@ namespace MVCPattern.View
 {
     public interface IMainView
     {
+        Staff Staff { get; set;  }
         string ID { get; set; }
         string Name { get; set; }
         int Age { get; set; } 

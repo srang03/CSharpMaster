@@ -19,7 +19,7 @@ namespace MVCPattern.View
         string IMainView.Name { get => txb_name.Text.Trim(); set => txb_name.Text = value.Trim(); }
         int IMainView.Age { get { int.TryParse(txb_age.Text, out int value); return value; } set => txb_age.Text = value.ToString(); }
         bool IMainView.Active { get => cbx_active.Checked; set => cbx_active.Checked = value; }
-
+    
         public void SetController(MainController controller)
         {
             _controller = controller;
@@ -66,7 +66,7 @@ namespace MVCPattern.View
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex < 0) return;
-
+            _controller.LoadStaff();
             var temp = dataGridView1.Rows[e.RowIndex];
         }
     }
